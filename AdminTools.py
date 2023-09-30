@@ -27,13 +27,9 @@ async def get_user(app: Client, args: str, reply: types.Message):
         extras = args
     else:
         args_ = args.split()
-        user = await app.get_chat(
-            int(args_[0]) if args_[0].isdigit() else args_[0]
-        )
+        user = await app.get_chat(int(args_[0]) if args_[0].isdigit() else args_[0])
         if len(args_) < 2:
-            user = await app.get_chat(
-                int(args) if args.isdigit() else args
-            )
+            user = await app.get_chat(int(args) if args.isdigit() else args)
         else:
             extras = args.split(maxsplit=1)[1]
 
@@ -66,10 +62,11 @@ def process_time_args(duration_str):
 
     return datetime.now() + delta
 
+
 @loader.module("AdminTools", "hikamoru", 1.1)
 class AdminTools(loader.Module):
     """Free usefull admin tools"""
-    
+
     strings = {
         "no_args_or_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>No args or reply.</b>",
         "no_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>No reply.</b>",
@@ -94,48 +91,52 @@ class AdminTools(loader.Module):
         """Обработка всего"""
         chat = message.chat
         if chat.type == "private":
-            return await utils.answer(
-                message, self.strings["this_is_not_a_chat"])
+            return await utils.answer(message, self.strings["this_is_not_a_chat"])
 
         reply = message.reply_to_message
         if not (args or reply):
-            return await utils.answer(
-                message, self.strings["no_args_or_reply"])
+            return await utils.answer(message, self.strings["no_args_or_reply"])
 
         check_me = await app.get_chat_member(message.chat.id, self.tg_id)
         if not check_me.privileges.can_restrict_members:
-            return await utils.answer(
-                message, self.strings["no_rights"])
+            return await utils.answer(message, self.strings["no_rights"])
 
         try:
             return await get_user(app, args, reply)
         except errors.RPCError:
-            return await utils.answer(
-                message, self.strings["cant_find_the_user"])
+            return await utils.answer(message, self.strings["cant_find_the_user"])
 
     async def handle_mute_args(self, user: types.User, args: str = None):
         if not args:
-            return self.strings["muted"].format(
-                name=html.escape(utils.get_display_name(user)),
-                reson='None'
-            ) + ".", None
+            return (
+                self.strings["muted"].format(
+                    name=html.escape(utils.get_display_name(user)), reson="None"
+                )
+                + ".",
+                None,
+            )
 
         args_ = args.split("\n", maxsplit=1)
         args = args_[0]
         if not (n := process_time_args(args)):
-            return self.strings["muted"].format(
-                name=html.escape(utils.get_display_name(user)),
-                reason=args
-            ), None
+            return (
+                self.strings["muted"].format(
+                    name=html.escape(utils.get_display_name(user)), reason=args
+                ),
+                None,
+            )
 
         reason_text = args_[1] if len(args_) > 1 else None
         logging.info(reason_text)
 
-        return self.strings["tmuted"].format(
-            name=html.escape(utils.get_display_name(user)),
-            time=n,
-            reason=reason_text or None
-        ), n
+        return (
+            self.strings["tmuted"].format(
+                name=html.escape(utils.get_display_name(user)),
+                time=n,
+                reason=reason_text or None,
+            ),
+            n,
+        )
 
     @loader.command()
     async def kick(self, app: Client, message: types.Message):
@@ -152,18 +153,16 @@ class AdminTools(loader.Module):
             await chat.ban_member(user.id)
             await chat.unban_member(user.id)
         except errors.UserAdminInvalid:
-            return await utils.answer(
-                message, self.strings["the_user_is_an_admin"])
+            return await utils.answer(message, self.strings["the_user_is_an_admin"])
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
         return await utils.answer(
-            message, self.strings["kicked"].format(
-                name=html.escape(utils.get_display_name(user)),
-                reason=reason or ""
-            )
+            message,
+            self.strings["kicked"].format(
+                name=html.escape(utils.get_display_name(user)), reason=reason or ""
+            ),
         )
 
     @loader.command()
@@ -180,18 +179,16 @@ class AdminTools(loader.Module):
         try:
             await chat.ban_member(user.id)
         except errors.UserAdminInvalid:
-            return await utils.answer(
-                message, self.strings["the_user_is_an_admin"])
+            return await utils.answer(message, self.strings["the_user_is_an_admin"])
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
         return await utils.answer(
-            message, self.strings["banned"].format(
-                name=html.escape(utils.get_display_name(user)),
-                reason=reason or ""
-            )
+            message,
+            self.strings["banned"].format(
+                name=html.escape(utils.get_display_name(user)), reason=reason or ""
+            ),
         )
 
     @loader.command()
@@ -209,14 +206,13 @@ class AdminTools(loader.Module):
             await chat.unban_member(user.id)
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
         return await utils.answer(
-            message, self.strings["unbanned"].format(
-                name=html.escape(utils.get_display_name(user)),
-                reason=reason or ""
-            )
+            message,
+            self.strings["unbanned"].format(
+                name=html.escape(utils.get_display_name(user)), reason=reason or ""
+            ),
         )
 
     @loader.command()
@@ -235,25 +231,21 @@ class AdminTools(loader.Module):
         try:
             if not n:
                 await chat.restrict_member(
-                    user.id, types.ChatPermissions(
-                        can_send_messages=False
-                        )
+                    user.id, types.ChatPermissions(can_send_messages=False)
                 )
             else:
                 await chat.restrict_member(
-                    user.id, types.ChatPermissions(
-                        can_send_messages=False), until_date=n
+                    user.id,
+                    types.ChatPermissions(can_send_messages=False),
+                    until_date=n,
                 )
         except errors.UserAdminInvalid:
-            return await utils.answer(
-                message, self.strings["the_user_is_an_admin"])
+            return await utils.answer(message, self.strings["the_user_is_an_admin"])
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
-        return await utils.answer(
-            message, text)
+        return await utils.answer(message, text)
 
     @loader.command()
     async def unmute(self, app: Client, message: types.Message):
@@ -268,18 +260,17 @@ class AdminTools(loader.Module):
         user, reason = result
         try:
             await chat.restrict_member(
-                user.id, types.ChatPermissions(
-                    can_send_messages=True))
+                user.id, types.ChatPermissions(can_send_messages=True)
+            )
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
         return await utils.answer(
-            message, self.strings["unmuted"].format(
-                name=html.escape(utils.get_display_name(user)),
-                reason=reason or "None"
-            )
+            message,
+            self.strings["unmuted"].format(
+                name=html.escape(utils.get_display_name(user)), reason=reason or "None"
+            ),
         )
 
     @loader.command()
@@ -290,23 +281,19 @@ class AdminTools(loader.Module):
         if chat.type != "private":
             check_me = await app.get_chat_member(message.chat.id, self.tg_id)
             if not check_me.privileges.can_pin_messages:
-                return await utils.answer(
-                    message, self.strings["no_rights"])
+                return await utils.answer(message, self.strings["no_rights"])
 
         reply = message.reply_to_message
         if not reply:
-            return await utils.answer(
-                message, self.strings["no_reply"])
+            return await utils.answer(message, self.strings["no_reply"])
 
         try:
             await reply.pin(True, True)
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
-        return await utils.answer(
-            message, self.strings["pinned"])
+        return await utils.answer(message, self.strings["pinned"])
 
     @loader.command()
     async def unpin(self, app: Client, message: types.Message):
@@ -317,14 +304,12 @@ class AdminTools(loader.Module):
         if chat.type != "private":
             check_me = await app.get_chat_member(message.chat.id, self.tg_id)
             if not check_me.privileges.can_pin_messages:
-                return await utils.answer(
-                    message, self.strings["no_rights"])
+                return await utils.answer(message, self.strings["no_rights"])
 
         chat = await app.get_chat(chat.id)
         pinned_message: Union[types.Message, None] = chat.pinned_message
         if not pinned_message:
-            return await utils.answer(
-                message, self.strings["no_pin"])
+            return await utils.answer(message, self.strings["no_pin"])
 
         try:
             if args == "all":
@@ -333,8 +318,8 @@ class AdminTools(loader.Module):
                 await pinned_message.unpin()
         except errors.RPCError as error:
             logging.exception(error)
-            return await utils.answer(
-                message, self.strings["unknown_error"])
+            return await utils.answer(message, self.strings["unknown_error"])
 
         return await utils.answer(
-            message, self.strings["unpinned" if args != "all" else "unpinned_all"])
+            message, self.strings["unpinned" if args != "all" else "unpinned_all"]
+        )
