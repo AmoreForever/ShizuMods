@@ -1,1 +1,6 @@
 admintools
+speech
+phsticker
+nytimer
+universaltime
+hacker
