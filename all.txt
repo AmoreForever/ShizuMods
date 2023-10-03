@@ -5,3 +5,4 @@ nytimer
 universaltime
 hacker
 animevoices
+aniquotes
