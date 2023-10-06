@@ -6,6 +6,7 @@
 # 👤 https://t.me/hikamoru
 
 # requires: pydub speechrecognition python-ffmpeg
+# banner: https://github.com/AmoreForever/shizuassets/blob/master/speech.jpg?raw=true
 
 import os
 import logging

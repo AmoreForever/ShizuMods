@@ -7,6 +7,7 @@
 
 
 # required: phlogo
+# banner: https://github.com/AmoreForever/shizuassets/blob/master/phsticker.jpg?raw=true
 
 import os
 from .. import loader, utils

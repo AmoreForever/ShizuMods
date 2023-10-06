@@ -7,6 +7,8 @@
 
 # required: Pillow
 
+# banner: https://github.com/AmoreForever/shizuassets/blob/master/hacker.jpg?raw=true
+
 from .. import loader, utils
 import requests
 from PIL import Image, ImageFont, ImageDraw
@@ -27,7 +29,9 @@ class HackerMod(loader.Module):
     async def hackercmd(self, app, message):
         """Reply to text or write text"""
 
-        ufr = requests.get("https://github.com/AmoreForever/assets/raw/master/CryptoCrashItalic-vmogL.ttf")
+        ufr = requests.get(
+            "https://github.com/AmoreForever/assets/raw/master/CryptoCrashItalic-vmogL.ttf"
+        )
         f = ufr.content
 
         reply = message.reply_to_message
@@ -39,7 +43,9 @@ class HackerMod(loader.Module):
             await message.answer(self.strings["what"])
             return
         await message.answer(self.strings["processing"])
-        pic = requests.get("https://github.com/AmoreForever/assets/blob/master/photo_2023-10-02_12-38-35.jpg?raw=true")
+        pic = requests.get(
+            "https://github.com/AmoreForever/assets/blob/master/photo_2023-10-02_12-38-35.jpg?raw=true"
+        )
         pic.raw.decode_content = True
         img = Image.open(io.BytesIO(pic.content)).convert("RGB")
 
@@ -61,4 +67,6 @@ class HackerMod(loader.Module):
         out.name = "amore.webp"
         img.save(out)
         out.seek(0)
-        await message.answer(out, doc=True, reply_to_message_id=reply.id if reply else None)
+        await message.answer(
+            out, doc=True, reply_to_message_id=reply.id if reply else None
+        )

@@ -5,6 +5,8 @@
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 # 👤 https://t.me/hikamoru
 
+# banner: https://github.com/AmoreForever/shizuassets/blob/master/admintools.jpg?raw=true
+
 
 import logging
 
