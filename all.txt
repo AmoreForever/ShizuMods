@@ -7,3 +7,4 @@ hacker
 animevoices
 aniquotes
 lymusic
+mindtalk
