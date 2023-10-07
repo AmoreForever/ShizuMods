@@ -5,6 +5,7 @@
 # 🌐 https://www.gnu.org/licenses/agpl-3.0.html
 # 👤 https://t.me/hikamoru
 
+# banner: https://github.com/AmoreForever/shizuassets/blob/master/animevoices.jpg?raw=true
 
 from .. import loader
 
