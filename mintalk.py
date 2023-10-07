@@ -37,7 +37,7 @@ class MindTalkMod(loader.Module):
         ),
         "history_cleared": "<emoji id=5818967120213445821>🛡</emoji> <b>Your history has been successfully cleared</b>",
     }
-    
+
     strings_ru = {
         "args_error": "<emoji id=5273793379300289907>❗️</emoji> <b>Отсутствуют или неверные аргументы!</b>",
         "successful_login": "<emoji id=5206607081334906820>✔️</emoji> <b>Вход успешно выполнен. Токен сохранен в конфиге</b>",
@@ -56,7 +56,7 @@ class MindTalkMod(loader.Module):
         ),
         "history_cleared": "<emoji id=5818967120213445821>🛡</emoji> <b>Ваша история успешно очищена</b>",
     }
-    
+
     strings_uz = {
         "args_error": "<emoji id=5273793379300289907>❗️</emoji> <b>Argumentlar yo'q yoki noto'g'ri!</b>",
         "successful_login": "<emoji id=5206607081334906820>✔️</emoji> <b>Kirish muvaffaqiyatli yakunlandi. Token saqlandi</b>",
@@ -65,7 +65,7 @@ class MindTalkMod(loader.Module):
         "login_error": (
             "<emoji id=5210952531676504517>❌</emoji> "
             "<b>Kirishda xatolik. Ehtimol, siz noto'g'ri parol kiritdingiz yoki ro'yxatdan o'tmagansiz. "
-            'Qayta urinib ko\'ring yoki <a href="https://t.me/hikpsybot?start=register">bu havoladan</a> ro\'yxatdan o\'ting.</b>'
+            "Qayta urinib ko'ring yoki <a href=\"https://t.me/hikpsybot?start=register\">bu havoladan</a> ro'yxatdan o'ting.</b>"
         ),
         "answer": (
             "<emoji id=5818995853544656277>👩‍💻</emoji> "
@@ -75,7 +75,7 @@ class MindTalkMod(loader.Module):
         ),
         "history_cleared": "<emoji id=5818967120213445821>🛡</emoji> <b>Sizning tarixingiz muvaffaqiyatli tozalandi</b>",
     }
-    
+
     strings_jp = {
         "args_error": "<emoji id=5273793379300289907>❗️</emoji> <b>引数がありませんまたは無効です！</b>",
         "successful_login": "<emoji id=5206607081334906820>✔️</emoji> <b>ログインに成功しました。トークンが構成に保存されました</b>",
@@ -137,7 +137,7 @@ class MindTalkMod(loader.Module):
 
         if not self.config["token"]:
             return await utils.answer(
-                message, self.strings("not_token").format(self.get_prefix())
+                message, self.strings("not_token").format(', '.join(self.prefix))
             )
 
         params = {"userMessage": args, "TOKEN": self.config["token"]}
@@ -153,7 +153,7 @@ class MindTalkMod(loader.Module):
 
         if not self.config["token"]:
             return await utils.answer(
-                message, self.strings("not_token").format(self.get_prefix())
+                message, self.strings("not_token").format(', '.join(self.prefix)
             )
 
         params = {"TOKEN": self.config["token"]}
