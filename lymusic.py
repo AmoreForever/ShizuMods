@@ -58,7 +58,7 @@ class LyMusic(loader.Module):
                 .document
             )
         except Exception:
-            await message.answer(self.strings("cannot"))
+            return await message.answer(self.strings("cannot"))
         lyrics = Document._parse(
             client=app,
             document=result,
