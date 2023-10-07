@@ -137,7 +137,7 @@ class MindTalkMod(loader.Module):
 
         if not self.config["token"]:
             return await utils.answer(
-                message, self.strings("not_token").format(', '.join(self.prefix))
+                message, self.strings("not_token").format(", ".join(self.prefix))
             )
 
         params = {"userMessage": args, "TOKEN": self.config["token"]}
@@ -153,8 +153,8 @@ class MindTalkMod(loader.Module):
 
         if not self.config["token"]:
             return await utils.answer(
-                message, self.strings("not_token").format(', '.join(self.prefix)
-            ))
+                message, self.strings("not_token").format(", ".join(self.prefix))
+            )
 
         params = {"TOKEN": self.config["token"]}
         response = (
