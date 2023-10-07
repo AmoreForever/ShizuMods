@@ -6,7 +6,7 @@
 # 👤 https://t.me/hikamoru
 
 # module made by https://t.me/AstroModules
-# special thanks to @toxicuse
+# special thanks to @toxicuse 
 
 # banner: https://github.com/AmoreForever/shizuassets/blob/master/mindtalk.jpg?raw=true
 
