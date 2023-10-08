@@ -65,7 +65,7 @@ def process_time_args(duration_str):
     return datetime.now() + delta
 
 
-@loader.module("AdminTools", "hikamoru", 1.1)
+@loader.module("AdminTools", "hikamoru", 1.2)
 class AdminTools(loader.Module):
     """Free usefull admin tools"""
 
@@ -87,6 +87,69 @@ class AdminTools(loader.Module):
         "unpinned": "<emoji id=6334551070487873258>✂️</emoji> <b>Message was unpinned.</b>",
         "unpinned_all": "<emoji id=6334551070487873258>✂️</emoji> <b>All pinned messages were unpinned.</b>",
         "no_pin": "🙅‍♀️ <b>No pinned messages.</b>",
+    }
+
+    strings_ru = {
+        "no_args_or_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>Нет аргументов или реплая.</b>",
+        "no_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>Нет реплая.</b>",
+        "this_is_not_a_chat": "<emoji id=5807626765874499116>🚫</emoji> <b>Это не чат.</b>",
+        "cant_find_the_user": "<emoji id=5807626765874499116>🚫</emoji> <b>Не могу найти пользователя.</b>",
+        "no_rights": "<emoji id=5818678700274617758>👮‍♀️</emoji> <b>Нет прав.</b>",
+        "unknown_error": "<emoji id=5807626765874499116>🚫</emoji> Неизвестная ошибка. Смотрите логи.",
+        "the_user_is_an_admin": "<emoji id=5818678700274617758>👮‍♀️</emoji> <b>Ошибка! Пользователь админ.</b>",
+        "kicked": "<emoji id=5346123695171580172>🏃</emoji><b>{name} был кикнут.</b>\n<emoji id=6334541265077536138>❔</emoji> Причина: {reason}",
+        "banned": "<emoji id=6334379984760604198>🔒</emoji> <b>{name} был забанен.</b>\n<emoji id=6334541265077536138>❔</emoji> Причина: {reason}",
+        "unbanned": "<emoji id=6334633031348782722>🔓</emoji> <b>{name} был разбанен.</b>\nПричина: <emoji id=6334541265077536138>❔</emoji> {reason}",
+        "muted": "<emoji id=6334460794570278986>🔇</emoji> <b>{name} был замучен.</b>\
+        \n<emoji id=6334541265077536138>❔</emoji> Причина: <code>{reason}</code>",
+        "tmuted": "<emoji id=6334460794570278986>🔇</emoji> <b>{name} был замучен до</b> <code>{time}</code>.\n<emoji id=6334541265077536138>❔</emoji> Причина: {reason}",
+        "unmuted": "<emoji id=6334513210351159296>🔊</emoji><b>{name} был размучен.</b>\nПричина: <emoji id=6334541265077536138>❔</emoji> {reason}",
+        "pinned": "<emoji id=6334567936824444680>📌</emoji> <b>Сообщение закреплено.</b>",
+        "unpinned": "<emoji id=6334551070487873258>✂️</emoji> <b>Сообщение откреплено.</b>",
+        "unpinned_all": "<emoji id=6334551070487873258>✂️</emoji> <b>Все закрепленные сообщения откреплены.</b>",
+        "no_pin": "🙅‍♀️ <b>Нет закрепленных сообщений.</b>",
+    }
+
+    strings_uz = {
+        "no_args_or_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>Argumet yoki reply yo'q.</b>",
+        "no_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>Reply yo'q.</b>",
+        "this_is_not_a_chat": "<emoji id=5807626765874499116>🚫</emoji> <b>Bu chat emas.</b>",
+        "cant_find_the_user": "<emoji id=5807626765874499116>🚫</emoji> <b>Foydalanuvchini topib bo'lmadi.</b>",
+        "no_rights": "<emoji id=5818678700274617758>👮‍♀️</emoji> <b>Haq yo'q.</b>",
+        "unknown_error": "<emoji id=5807626765874499116>🚫</emoji> Noma'lum xatolik. Loglarni ko'ring.",
+        "the_user_is_an_admin": "<emoji id=5818678700274617758>👮‍♀️</emoji> <b>Xatolik! Foydalanuvchi admin.</b>",
+        "kicked": "<emoji id=5346123695171580172>🏃</emoji><b>{name} kicklandi.</b>\n<emoji id=6334541265077536138>❔</emoji> Sababi: {reason}",
+        "banned": "<emoji id=6334379984760604198>🔒</emoji> <b>{name} banlandi.</b>\n<emoji id=6334541265077536138>❔</emoji> Sababi: {reason}",
+        "unbanned": "<emoji id=6334633031348782722>🔓</emoji> <b>{name} unbanlandi.</b>\nSababi: <emoji id=6334541265077536138>❔</emoji> {reason}",
+        "muted": "<emoji id=6334460794570278986>🔇</emoji> <b>{name} mutelangan.</b>\
+        \n<emoji id=6334541265077536138>❔</emoji> Sababi: <code>{reason}</code>",
+        "tmuted": "<emoji id=6334460794570278986>🔇</emoji> <b>{name} {time} gacha mutelangan.</b>.\n<emoji id=6334541265077536138>❔</emoji> Sababi: {reason}",
+        "unmuted": "<emoji id=6334513210351159296>🔊</emoji><b>{name} unmutelangan.</b>\nSababi: <emoji id=6334541265077536138>❔</emoji> {reason}",
+        "pinned": "<emoji id=6334567936824444680>📌</emoji> <b>Xabar qo'shildi.</b>",
+        "unpinned": "<emoji id=6334551070487873258>✂️</emoji> <b>Xabar olib tashlandi.</b>",
+        "unpinned_all": "<emoji id=6334551070487873258>✂️</emoji> <b>Barcha xabarlarni olib tashlandi.</b>",
+        "no_pin": "🙅‍♀️ <b>Zakrplangan xabarlar yo'q.</b>",
+    }
+
+    strings_jp = {
+        "no_args_or_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>引数がありませんまたは無効です！</b>",
+        "no_reply": "<emoji id=5807626765874499116>🚫</emoji> <b>リプライがありません。</b>",
+        "this_is_not_a_chat": "<emoji id=5807626765874499116>🚫</emoji> <b>これはチャットではありません。</b>",
+        "cant_find_the_user": "<emoji id=5807626765874499116>🚫</emoji> <b>ユーザーが見つかりません。</b>",
+        "no_rights": "<emoji id=5818678700274617758>👮‍♀️</emoji> <b>権限がありません。</b>",
+        "unknown_error": "<emoji id=5807626765874499116>🚫</emoji> 不明なエラー。ログを参照してください。",
+        "the_user_is_an_admin": "<emoji id=5818678700274617758>👮‍♀️</emoji> <b>エラー！ユーザーは管理者です。</b>",
+        "kicked": "<emoji id=5346123695171580172>🏃</emoji><b>{name} がキックされました。</b>\n<emoji id=6334541265077536138>❔</emoji> 理由: {reason}",
+        "banned": "<emoji id=6334379984760604198>🔒</emoji> <b>{name} が禁止されました。</b>\n<emoji id=6334541265077536138>❔</emoji> 理由: {reason}",
+        "unbanned": "<emoji id=6334633031348782722>🔓</emoji> <b>{name} が禁止解除されました。</b>\n理由: <emoji id=6334541265077536138>❔</emoji> {reason}",
+        "muted": "<emoji id=6334460794570278986>🔇</emoji> <b>{name} がミュートされました。</b>\
+        \n<emoji id=6334541265077536138>❔</emoji> 理由: <code>{reason}</code>",
+        "tmuted": "<emoji id=6334460794570278986>🔇</emoji> <b>{name} が {time} までミュートされました。</b>.\n<emoji id=6334541265077536138>❔</emoji> 理由: {reason}",
+        "unmuted": "<emoji id=6334513210351159296>🔊</emoji><b>{name} がミュート解除されました。</b>\n理由: <emoji id=6334541265077536138>❔</emoji> {reason}",
+        "pinned": "<emoji id=6334567936824444680>📌</emoji> <b>メッセージがピン留めされました。</b>",
+        "unpinned": "<emoji id=6334551070487873258>✂️</emoji> <b>メッセージがピン留め解除されました。</b>",
+        "unpinned_all": "<emoji id=6334551070487873258>✂️</emoji> <b>すべてのピン留めされたメッセージがピン留め解除されました。</b>",
+        "no_pin": "🙅‍♀️ <b>ピン留めされたメッセージはありません。</b>",
     }
 
     async def check_all(self, app: Client, message: types.Message, args: str):

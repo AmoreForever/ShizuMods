@@ -32,6 +32,36 @@ class SpeechMod(loader.Module):
         "language_set": "<emoji id=5267468588985363056>🚛</emoji> <b>Language set to {}</b>",
     }
 
+    strings_ru = {
+        "only_voice": "<emoji id=5877477244938489129>🚫</emoji> <b>Ответьте на голосовое сообщение!</b>",
+        "downloading": "<emoji id=5213251580425414358>🔽</emoji> <b>Загрузка...</b>",
+        "recognizing": "<emoji id=5472199711366584503>👂</emoji> <b>Распознавание...</b>",
+        "not_recognized": "<emoji id=5877477244938489129>🚫</emoji> <b>Не распознано</b>",
+        "request_error": "<emoji id=5877477244938489129>🚫</emoji> <b>Произошла ошибка запроса.\n{}</b>",
+        "recognized": "<emoji id=5267468588985363056>🚛</emoji> <b>Распознано:</b> <code>{}</code>",
+        "language_set": "<emoji id=5267468588985363056>🚛</emoji> <b>Язык установлен на {}</b>",
+    }
+
+    strings_uz = {
+        "only_voice": "<emoji id=5877477244938489129>🚫</emoji> <b>Ovozli xabarga javob bering!</b>",
+        "downloading": "<emoji id=5213251580425414358>🔽</emoji> <b>Yuklanmoqda...</b>",
+        "recognizing": "<emoji id=5472199711366584503>👂</emoji> <b>Tanishish...</b>",
+        "not_recognized": "<emoji id=5877477244938489129>🚫</emoji> <b>Tanilmadi</b>",
+        "request_error": "<emoji id=5877477244938489129>🚫</emoji> <b>So'rovda xatolik yuz berdi.\n{}</b>",
+        "recognized": "<emoji id=5267468588985363056>🚛</emoji> <b>Tanildi:</b> <code>{}</code>",
+        "language_set": "<emoji id=5267468588985363056>🚛</emoji> <b>Til {} ga o'rnatildi</b>",
+    }
+
+    strings_jp = {
+        "only_voice": "<emoji id=5877477244938489129>🚫</emoji> <b>音声メッセージに返信してください！</b>",
+        "downloading": "<emoji id=5213251580425414358>🔽</emoji> <b>ダウンロード中...</b>",
+        "recognizing": "<emoji id=5472199711366584503>👂</emoji> <b>認識中...</b>",
+        "not_recognized": "<emoji id=5877477244938489129>🚫</emoji> <b>認識されませんでした</b>",
+        "request_error": "<emoji id=5877477244938489129>🚫</emoji> <b>リクエストエラーが発生しました。\n{}</b>",
+        "recognized": "<emoji id=5267468588985363056>🚛</emoji> <b>認識されました:</b> <code>{}</code>",
+        "language_set": "<emoji id=5267468588985363056>🚛</emoji> <b>言語が{}に設定されました</b>",
+    }
+
     def __init__(self):
         self.config = {"language": self.db.get("speech", "language", None) or "ru"}
 
