@@ -22,7 +22,7 @@ class Wakatime(loader.Module):
     """Show your Wakatime stats"""
 
     strings = {
-        "set_waka": "<b>Set your Wakatime token</b>",
+        "set_waka": "Set your Wakatime token",
         "no_token": "🚫 <b>You don't have a token</b>",
     }
 
@@ -37,6 +37,8 @@ class Wakatime(loader.Module):
     async def waka(self, app: Client, message: types.Message):
         """See your stat"""
         token = self.config["WAKATIME_TOKEN"]
+        if token is None:
+            return await message.answer(self.strings("no_token"))
         async with aiohttp.ClientSession() as session:
             tasks = [
                 session.request(
@@ -105,7 +107,7 @@ class Wakatime(loader.Module):
             )
 
     async def update_waka(self, call):
-        await call.message.edit("🔄 <b>Updating...</b>")
+        await call.edit("🔄 <b>Updating...</b>")
         token = self.config["WAKATIME_TOKEN"]
         if token is None:
             return await call.edit(self.strings("no_token"))
