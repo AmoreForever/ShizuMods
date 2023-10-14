@@ -63,7 +63,9 @@ class SpeechMod(loader.Module):
     }
 
     def __init__(self):
-        self.config = {"language": self.db.get("speech", "language", None) or "ru"}
+        self.config = loader.ModuleConfig(
+            "language", "en-US", "Recognition language (ISO 639-1 code)"
+        )
 
     @loader.command()
     async def setspechlg(self, app, message):

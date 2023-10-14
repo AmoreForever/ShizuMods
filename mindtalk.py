@@ -6,7 +6,7 @@
 # 👤 https://t.me/hikamoru
 
 # module made by https://t.me/AstroModules
-# special thanks to @toxicuse 
+# special thanks to @toxicuse
 
 # banner: https://github.com/AmoreForever/shizuassets/blob/master/mindtalk.jpg?raw=true
 
@@ -96,7 +96,11 @@ class MindTalkMod(loader.Module):
     }
 
     def __init__(self):
-        self.config = {"token": self.db.get("MindTalk", "token", None)}
+        self.config = loader.ModuleConfig(
+            "token",
+            None,
+            lambda m: "Here you can set your token for MindTalk. "
+        )
         self.url = "https://ps.hikamoru.uz"
 
     async def get_token(self, login, password):

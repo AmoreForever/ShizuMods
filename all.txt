@@ -8,3 +8,4 @@ animevoices
 aniquotes
 lymusic
 mindtalk
+wakatime

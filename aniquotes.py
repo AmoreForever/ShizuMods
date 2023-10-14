@@ -55,7 +55,7 @@ class AnimatedQuotes(loader.Module):
                 "<emoji id=6332121420373428086>😤</emoji> <b>Please provide arguments.</b>"
             )
         result = (
-            (await app.get_inline_bot_results("@honka_says_bot", args + "."))
+            (await app.get_inline_bot_results("@honka_says_bot", f"{args}."))
             .results[0]
             .document
         )
