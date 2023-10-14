@@ -168,4 +168,12 @@ class Wakatime(loader.Module):
             )
             await call.edit(
                 f"👤 <b>Username:</b> <code>{username}</code>\n🖥 <b>OS:</b> {OS}\n🌀 <b>Editor:</b> {EDITOR}\n⏳ <b>All time</b>: <code>{all_time}</code>\n💼 <b>Today</b>: <code>{TODAY}</code>\n\n🧬 LANGUAGES\n\n{LANG}\n",
+                reply_markup=[
+                    [
+                        {
+                            "text": "🔄 Update",
+                            "callback": self.update_waka,
+                        }
+                    ]
+                ],
             )
