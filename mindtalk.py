@@ -97,19 +97,20 @@ class MindTalkMod(loader.Module):
 
     def __init__(self):
         self.config = loader.ModuleConfig(
-            "token",
-            None,
-            lambda m: "Here you can set your token for MindTalk. "
+            "token", None, lambda m: "Here you can set your token for MindTalk. "
         )
         self.url = "https://ps.hikamoru.uz"
 
     async def get_token(self, login, password):
         params = {"username": login, "password": password}
-        if (requests.post(self.url + "/api/authenticate", params=params)).json()[
-            "result"
-        ] == True:
-            token = (
-                requests.post(self.url + "/api/createUserToken", params=params)
+        if (
+            requests.post(f"{self.url}/api/authenticate", params=params).json()[
+                "result"
+            ]
+            == True
+        ):
+            token = requests.post(
+                f"{self.url}/api/createUserToken", params=params
             ).json()["result"]
             self.config["token"] = token
             return True
@@ -146,7 +147,7 @@ class MindTalkMod(loader.Module):
 
         params = {"userMessage": args, "TOKEN": self.config["token"]}
         msg = await utils.answer(message, self.strings("wait"))
-        response = (requests.post(self.url + "/api/chat", params=params)).json()
+        response = requests.post(f"{self.url}/api/chat", params=params).json()
         text = response["result"]
 
         await utils.answer(message, self.strings("answer").format(args, text))
@@ -161,7 +162,7 @@ class MindTalkMod(loader.Module):
             )
 
         params = {"TOKEN": self.config["token"]}
-        response = (
-            requests.post(self.url + "/api/clear_chat_history", params=params)
+        response = requests.post(
+            f"{self.url}/api/clear_chat_history", params=params
         ).json()
         await utils.answer(message, self.strings("history_cleared"))

@@ -9,3 +9,4 @@ aniquotes
 lymusic
 mindtalk
 wakatime
+amethyste
