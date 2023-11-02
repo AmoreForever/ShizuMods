@@ -396,7 +396,7 @@ class Jutsu(loader.Module):
 
     @loader.command()
     async def jutsud(self, app, message):
-        """Download anime from jutsu <url>"""
+        """Download anime from jutsu - [url]"""
 
         args = utils.get_args_raw(message)
 
