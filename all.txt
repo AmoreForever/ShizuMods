@@ -2,6 +2,7 @@ amethyste
 admintools
 jutsu
 speech
+converter
 phsticker
 nytimer
 universaltime
