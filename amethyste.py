@@ -7,6 +7,8 @@
 
 # banner: https://github.com/AmoreForever/shizuassets/blob/master/amethyste.jpg?raw=true
 
+# required: aiofiles, aiohttp, requests
+
 import os
 import logging
 import aiohttp
