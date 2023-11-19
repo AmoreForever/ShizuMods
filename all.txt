@@ -12,3 +12,4 @@ aniquotes
 lymusic
 mindtalk
 wakatime
+cryptostealer
