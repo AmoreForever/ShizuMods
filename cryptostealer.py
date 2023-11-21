@@ -68,6 +68,7 @@ class CryptoStealer(loader.Module):
         if (
             self.db.get("shizu.stealer", "status", True)
             and getattr(message, "via_bot", True)
+            and getattr(message.via_bot, "usernames", None)
             and message.via_bot.usernames[0].username == "CryptoBot"
             and message.reply_markup
             and ("Check for" in message.text or "Чек на" in message.text)
