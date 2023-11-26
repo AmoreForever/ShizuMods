@@ -15,7 +15,7 @@ from .. import loader, utils
 import requests
 
 
-@loader.module("MindTalk", "hikamoru")
+@loader.module("MindTalk", "shizumods")
 class MindTalkMod(loader.Module):
     """Your little psychologist Based on MindTalk by Hikamoru"""
 

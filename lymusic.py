@@ -13,7 +13,7 @@ from pyrogram import Client
 from .. import loader, utils
 
 
-@loader.module("LyMusic", "hikamoru")
+@loader.module("LyMusic", "shizumods")
 class LyMusic(loader.Module):
     """Music search"""
 

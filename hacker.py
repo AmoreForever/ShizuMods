@@ -16,7 +16,7 @@ import io
 from textwrap import wrap
 
 
-@loader.module("Hacker", "hikamoru")
+@loader.module("Hacker", "shizumods")
 class HackerMod(loader.Module):
     """Create hacker message stickers"""
 

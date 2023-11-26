@@ -14,7 +14,7 @@ from .. import loader, utils
 from phlogo import generate
 
 
-@loader.module("Phlogo", "hikamoru")
+@loader.module("Phlogo", "shizumods")
 class PhLogo(loader.Module):
     """Make Pornhub logo sticker"""
 

@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 recognizer = sr.Recognizer()
 
 
-@loader.module("Speech", "hikamoru")
+@loader.module("Speech", "shizumods")
 class SpeechMod(loader.Module):
     """Speech Recognition"""
 

@@ -15,7 +15,7 @@ from pyrogram import Client
 from .. import loader, utils
 
 
-@loader.module("AnimatedQuotes", "hikamoru")
+@loader.module("AnimatedQuotes", "shizumods")
 class AnimatedQuotes(loader.Module):
     """Animated quotes for fun"""
 

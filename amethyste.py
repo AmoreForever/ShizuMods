@@ -86,7 +86,7 @@ async def oxo(file):
     return re.text
 
 
-@loader.module("Amethyste", "hikamoru")
+@loader.module("Amethyste", "shizumods")
 class AmethysteMod(loader.Module):
     """Make your pics fun and better with Amethyste :)"""
 

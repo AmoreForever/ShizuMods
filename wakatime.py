@@ -17,7 +17,7 @@ from pyrogram import types, Client
 from .. import utils, loader
 
 
-@loader.module("Wakatime", "hikamoru", 1.0)
+@loader.module("Wakatime", "shizumods", 1.0)
 class Wakatime(loader.Module):
     """Show your Wakatime stats"""
 

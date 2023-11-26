@@ -65,7 +65,7 @@ def process_time_args(duration_str):
     return datetime.now() + delta
 
 
-@loader.module("AdminTools", "hikamoru", 1.2)
+@loader.module("AdminTools", "shizumods", 1.2)
 class AdminTools(loader.Module):
     """Free usefull admin tools"""
 

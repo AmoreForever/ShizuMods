@@ -10,7 +10,7 @@
 from .. import loader
 
 
-@loader.module("AnimeVoices", "hikamoru")
+@loader.module("AnimeVoices", "shizumods")
 class AnimeVoicesMod(loader.Module):
     """🎤 Popular Anime Voices"""
 

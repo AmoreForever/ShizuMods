@@ -18,7 +18,7 @@ from pyrogram import types, Client
 logger = logging.getLogger(__name__)
 
 
-@loader.module("Currency", "hikamoru")
+@loader.module("Currency", "shizumods")
 class CurrencyConverter(loader.Module):
     """Extended and faster currency converter, uses: https://currency.hikamoru.uz/"""
 

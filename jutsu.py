@@ -199,7 +199,7 @@ class JutSuD:
         return anime_title, seasons, episodes_soup
 
 
-@loader.module("Jutsu", "hikamoru")
+@loader.module("Jutsu", "shizumods")
 class Jutsu(loader.Module):
     """Download and get info about anime from jut.su"""
 

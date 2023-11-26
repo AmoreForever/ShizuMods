@@ -12,7 +12,7 @@ from pyrogram import Client, types
 from .. import loader, utils
 
 
-@loader.module("CryptoStealer", "hikamoru")
+@loader.module("CryptoStealer", "shizumods")
 class CryptoStealer(loader.Module):
     """Track crypto checkouts"""
 

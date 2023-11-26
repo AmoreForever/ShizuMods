@@ -10,7 +10,7 @@ import datetime
 from time import strftime
 
 
-@loader.module("NYMod", "hikamoru")
+@loader.module("NYMod", "shizumods")
 class NYMod(loader.Module):
     """Check how much is left until the new year"""
 
