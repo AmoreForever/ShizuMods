@@ -195,7 +195,7 @@ class BirthdayWish(loader.Module):
         return url, runner
 
     async def wishcmd(self, app, message):
-        """Create Birthday web wishes args: <name> <time:seconds default(20)>"""
+        """Create Birthday web wishes args: (name) (time:seconds default(20))"""
 
         args = utils.get_args_raw(message).split(" ")
 
