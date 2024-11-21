@@ -16,3 +16,4 @@ confess
 usertools
 truthordare
 birthdaywish
+fgpt
